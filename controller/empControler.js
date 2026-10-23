@@ -108,3 +108,37 @@ export const deleteEmp = async(req,res)=>{
         })
     }
 }
+
+
+
+
+
+
+
+
+
+export const updateEmp = async(req,res) =>{
+    try {
+        const {id} = req.params
+        const updatedData = await empModel.findByIdAndUpdate(id,req.body,{
+            new : true,
+            runValidators : true
+         
+        })
+        if(!updatedData){
+           return res.json({
+            message : "updation failed"
+
+           }) 
+        }
+        res.json({
+            message :"updated succesfully",
+            data : updatedData.name
+        })
+    } catch (error) {
+        res.json({
+            message : "somthing went wrong",
+            error : error.message
+        })
+    }
+}

@@ -1,5 +1,5 @@
 import express from "express"
-import { addEmp, deleteEmp, getAnEmp, getEmp } from "../controller/empControler.js"
+import { addEmp, deleteEmp, getAnEmp, getEmp, updateEmp } from "../controller/empControler.js"
 
 
 
@@ -9,4 +9,5 @@ router.post("/add", addEmp)
 router.get("/get", getEmp)
 router.get("/getId/:id",getAnEmp)
 router.delete("/deleteId/:id",deleteEmp)
+router.put("/update/:id",updateEmp)
 export default router
